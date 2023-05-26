@@ -15,6 +15,7 @@ export class UserService {
     //create a method to get the user data from the server
     getUser(): Observable<User> {
         //return the user data
+        //and if response timeout return to homepage
         return this.http.get<User>('/api/user');
     }
     //create a method to set the user data
