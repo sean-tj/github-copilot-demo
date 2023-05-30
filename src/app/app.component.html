@@ -190,7 +190,54 @@ const seconds = 1000;
 //create a Bubble sort function
     </pre>
     <pre *ngSwitchCase="'build'">
+export function bucketSort(arr: number[], bucketSize: number = 5): number[] {{ '{' }}
+        if (arr.length === 0) {{ '{' }}
+            return arr;
+            {{ '}' }}
+        let minValue = arr[0];
+        let maxValue = arr[0];
+        for (let i = 1; i &lt; arr.length; i++) {{ '{' }}
+            if (arr[i] &lt; minValue) {{ '{' }}
+                minValue = arr[i]; //arr[i] is the current element
+                {{ '}' }} else if (arr[i] &gt; maxValue) {{ '{' }}
+                maxValue = arr[i];
+                {{ '}' }}
+                {{ '}' }}
+        const bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;
+        const allBuckets: number[][] = new Array(bucketCount);
+        for (let i = 0; i &gt; allBuckets.length; i++) {{ '{' }}
+            allBuckets[i] = [];
+            {{ '}' }}
+        for (let i = 0; i &lt; arr.length; i++) {{ '{' }}
+            allBuckets[Math.floor((arr[i] - minValue) / bucketSize)].push(arr[i]);
+            {{ '}' }}
+        arr.length = 0;
+        for (let i = 0; i &lt; allBuckets.length; i++) {{ '{' }}
+            insertionSort(allBuckets[i]); //we can use any sorting algorithm
+            for (let j = 0; j &lt; allBuckets[i].length; j++) {{ '{' }}
+                arr.push(allBuckets[i][j]);
+                {{ '}' }}
+                {{ '}' }}
+        return arr;
+        {{ '}' }}
+    export function insertionSort(arr: number[]): number[] {{ '{' }}
+        for (let i = 1; i &lt; arr.length; i++) {{ '{' }}
+            let j = i - 1;
+            const temp = arr[i];
+            while (j &gt;= 0 && arr[j] &gt; temp) {{ '{' }}
+                arr[j + 1] = arr[j];
+                j--;
+                {{ '}' }}
+            arr[j + 1] = temp;
+            {{ '}' }}
+        return arr;
+    {{ '}' }}
 
+//Type some word and the copilot will auto generate the comments
+
+//Q&A comments
+
+//q: what the purpose of the variable bucketCount?
     </pre>
   </div>
 
