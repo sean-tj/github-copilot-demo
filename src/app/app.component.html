@@ -157,10 +157,8 @@
   <div class="terminal"
        [ngSwitch]="selection.value">
     <pre *ngSwitchDefault>
-//create a user model with user information username, password, email, and first and last name
+//create a user model with user information: id, username, password, email, and first and last name
 //create a user service class
-//create a user module with necessary package without components
-//Create a function of get time
     </pre>
     <pre *ngSwitchCase="'test'">
 1. create a file named user.service.spec.ts
@@ -170,16 +168,26 @@
 1. comments
 //validate chinese phone number function
 //validate swedish phone number function
-//validate chinese currency function
-//validate french currency function
 
-//import libraries and dependencies
-//importar bibliotecas e dependências
+//validate french currency function
+//criar uma função para obter tempo
 
 2. In translate.ts file input below 
 export function getString(){{ '{' }}
-     return [
-         'en'
+   return [
+    'en' , {{ '{' }}
+      'home' : 'Home',
+      'about' : 'About',
+      'contact' : 'Contact',
+      'login' : 'Login',
+      'register' : 'Register',
+      'logout' : 'Logout',
+      'welcome' : 'Welcome'
+      {{ '}' }}
+  ]
+{{ '}' }}
+//translate to polish
+//translate to portuguese
     </pre>
     <pre *ngSwitchCase="'dependency'">
 1. In demo.ts file input
@@ -325,7 +333,6 @@ export function bucketSort(arr: number[], bucketSize: number = 5): number[] {{ '
           transform="translate(142.69 -634.312)"
           fill="#eee" />
   </svg>
-
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
